@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Welcome Back 2020</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_accelerometer">Accelerometer</string>
+    <string name="placeholder_accelerometer_x">x: 0.0</string>
+    <string name="placeholder_accelerometer_y">y: 0.0</string>
+    <string name="placeholder_accelerometer_z">y: 0.0</string>
+    <string name="placeholder_accelerometer_x_max">max x: 0.0</string>
+    <string name="placeholder_accelerometer_y_max">max y: 0.0</string>
+    <string name="placeholder_accelerometer_z_max">max y: 0.0</string>
+    <string name="value_accelerometer_x">x: \t %s</string>
+    <string name="value_accelerometer_y">y: \t %s</string>
+    <string name="value_accelerometer_z">z: \t %s</string>
+    <string name="value_accelerometer_x_max">max x: \t %s</string>
+    <string name="value_accelerometer_y_max">max y: \t %s</string>
+    <string name="value_accelerometer_z_max">max z: \t %s</string>
 </resources>
