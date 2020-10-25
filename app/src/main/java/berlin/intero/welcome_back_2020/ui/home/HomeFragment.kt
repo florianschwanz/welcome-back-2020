@@ -10,10 +10,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import berlin.intero.welcome_back_2020.R
 
+/**
+ * Displays home fragment
+ */
 class HomeFragment : Fragment() {
 
+    /** View model */
     private lateinit var homeViewModel: HomeViewModel
 
+    //
+    // Lifecycle hooks
+    //
+
+    /**
+     * Handles create-view lifecycle phase
+     */
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,

@@ -11,10 +11,30 @@ import androidx.lifecycle.ViewModelProvider
 import berlin.intero.welcome_back_2020.R
 import berlin.intero.welcome_back_2020.viewmodel.accelerometer.AccelerometerViewModel
 
+/**
+ * Displays accelerometer fragment
+ */
 class AccelerometerFragment : Fragment() {
 
+    /** View model */
     private lateinit var accelerometerViewModel: AccelerometerViewModel
 
+    /** Text view displaying x-acceleration */
+    private lateinit var tvAccelerometerX: TextView
+    /** Text view displaying y-acceleration */
+    private lateinit var tvAccelerometerY: TextView
+    /** Text view displaying z-acceleration */
+    private lateinit var tvAccelerometerZ: TextView
+    /** Text view displaying current acceleration */
+    private lateinit var tvAccelerometerCurrent: TextView
+
+    //
+    // Lifecycle hooks
+    //
+
+    /**
+     * Handles create-view lifecycle phase
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,10 +44,10 @@ class AccelerometerFragment : Fragment() {
             ViewModelProvider(this).get(AccelerometerViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_accelerometer, container, false)
-        val tvAccelerometerX: TextView = root.findViewById(R.id.text_accelerometer_x)
-        val tvAccelerometerY: TextView = root.findViewById(R.id.text_accelerometer_y)
-        val tvAccelerometerZ: TextView = root.findViewById(R.id.text_accelerometer_z)
-        val tvAccelerometerCurrent: TextView = root.findViewById(R.id.text_accelerometer_current)
+        tvAccelerometerX = root.findViewById(R.id.text_accelerometer_x)
+        tvAccelerometerY = root.findViewById(R.id.text_accelerometer_y)
+        tvAccelerometerZ = root.findViewById(R.id.text_accelerometer_z)
+        tvAccelerometerCurrent = root.findViewById(R.id.text_accelerometer_current)
 
         this.accelerometerViewModel.accelerometerData.observe(viewLifecycleOwner, Observer {
             tvAccelerometerX.text =
@@ -43,5 +63,12 @@ class AccelerometerFragment : Fragment() {
         return root
     }
 
+    //
+    // Helpers
+    //
+
+    /**
+     * Formats double values to have
+     */
     private fun Double.formatValue() = String.format("%.2f", Math.abs(this))
 }

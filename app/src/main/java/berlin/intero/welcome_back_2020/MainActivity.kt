@@ -1,22 +1,25 @@
 package berlin.intero.welcome_back_2020
 
-import android.content.Context
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import berlin.intero.welcome_back_2020.viewmodel.accelerometer.AccelerometerViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+/**
+ * Displays main activity
+ */
 class MainActivity : AppCompatActivity() {
 
+    //
+    // Lifecycle hooks
+    //
+
+    /**
+     * Handles create-view lifecycle phase
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-                R.id.navigation_accelerometer
+                R.id.navigation_accelerometer,
+                R.id.navigation_location
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

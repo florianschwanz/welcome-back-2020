@@ -7,14 +7,22 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
 
+/**
+ * Accelerometer live data
+ */
 class AccelerometerLiveData(context: Context) : LiveData<AccelerometerModel>(),
     SensorEventListener {
 
+    /** Gravity acting on the device */
     private var gravity = AccelerometerModel(0.0, 0.0, 0.0)
+    /** Acceleration acting on the device */
     private var acceleration = AccelerometerModel(0.0, 0.0, 0.0)
 
+    /** Sensor manager */
     private var sensorManager: SensorManager
+    /** Accelerometer sensor */
     private var accelerometerSensor: Sensor
+    /** Gravity sensor */
     private var gravitySensor: Sensor
 
     init {
@@ -23,17 +31,26 @@ class AccelerometerLiveData(context: Context) : LiveData<AccelerometerModel>(),
         gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
     }
 
+    /**
+     * Handles inactivity
+     */
     override fun onInactive() {
         super.onInactive()
         sensorManager.unregisterListener(this)
     }
 
+    /**
+     * Handles activity
+     */
     override fun onActive() {
         super.onActive()
         sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL)
         sensorManager.registerListener(this, gravitySensor, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
+    /**
+     * Handles sensor value change
+     */
     override fun onSensorChanged(event: SensorEvent?) {
         when (event?.sensor?.type) {
             Sensor.TYPE_ACCELEROMETER -> {
@@ -65,6 +82,9 @@ class AccelerometerLiveData(context: Context) : LiveData<AccelerometerModel>(),
         }
     }
 
+    /**
+     * Handles accuracy change
+     */
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
 }
