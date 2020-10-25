@@ -16,4 +16,10 @@
         android:name="berlin.intero.welcome_back_2020.ui.accelerometer.AccelerometerFragment"
         android:label="@string/title_accelerometer"
         tools:layout="@layout/fragment_accelerometer" />
+
+    <fragment
+        android:id="@+id/navigation_location"
+        android:name="berlin.intero.welcome_back_2020.ui.location.LocationFragment"
+        android:label="@string/title_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

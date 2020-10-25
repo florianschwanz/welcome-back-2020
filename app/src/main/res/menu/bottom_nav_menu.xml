@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_baseline_360_24"
         android:title="@string/title_accelerometer" />
 
+    <item
+        android:id="@+id/navigation_location"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="@string/title_location" />
+
 </menu>
